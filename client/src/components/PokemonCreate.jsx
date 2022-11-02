@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import { getTypes, postPokemon } from '../actions/index'
+import styles from '../stylesheets/Create.module.css'
 
 const PokemonCreate = () => {
 
@@ -50,80 +51,87 @@ const PokemonCreate = () => {
         })
         history.push('/home')
     }
-             
-            useEffect(() => {
-                dispatch(getTypes());
-            }, [dispatch]);
 
-            return (
+    useEffect(() => {
+        dispatch(getTypes());
+    }, [dispatch]);
+
+    return (
+        <div className={styles.container}>
+            <Link to='/home'><button className={styles.btn}>Go back</button></Link>
+            <h1 className={styles.name}>Create your own pokemon</h1>
+            <form onSubmit={(e) => { handleSubmit(e) }}>
                 <div>
-                    <Link to='/home'><button>Volver</button></Link>
-                    <h1>Crea tu pokemon</h1>
-                    <form onSubmit={(e) => { handleSubmit(e) }}>
-                        <div>
-                            <label>Name:</label>
-                            <input
-                                type="text"
-                                value={input.name}
-                                name='name'
-                                onChange={(e) => { handleChange(e) }}
-                            />
-                        </div>
-                        <div>
-                            <label>Life:</label>
-                            <input
-                                type="number"
-                                value={input.life}
-                                name='life'
-                                onChange={(e) => { handleChange(e) }}
-                            />
-                        </div>
-                        <div>
-                            <label>Attack:</label>
-                            <input
-                                type="number"
-                                value={input.attack}
-                                name='attack'
-                                onChange={(e) => { handleChange(e) }}
-                            />
-                        </div>
-                        <div>
-                            <label>Defense:</label>
-                            <input
-                                type="number"
-                                value={input.defense}
-                                name='defense'
-                                onChange={(e) => { handleChange(e) }}
-                            />
-                        </div>
-                        <div>
-                            <label>Speed:</label>
-                            <input
-                                type="number"
-                                value={input.speed}
-                                name='speed'
-                                onChange={(e) => { handleChange(e) }}
-                            />
-                        </div>
-                        <div>
-                            <label>Weight:</label>
-                            <input
-                                type="number"
-                                value={input.weight}
-                                name='weight'
-                                onChange={(e) => { handleChange(e) }}
-                            />
-                        </div>
-                        <div>
-                            <label>Height:</label>
-                            <input
-                                type="number"
-                                value={input.height}
-                                name='height'
-                                onChange={(e) => { handleChange(e) }}
-                            />
-                        </div>
-                        {/* <div>
+                    <label className={styles.nameStats}>Name:</label>
+                    <input
+                        className={styles.inputs}
+                        type="text"
+                        value={input.name}
+                        name='name'
+                        onChange={(e) => { handleChange(e) }}
+                    />
+                </div>
+                <div>
+                    <label className={styles.nameStats}>Life:</label>
+                    <input
+                    className={styles.inputs}
+                        type="number"
+                        value={input.life}
+                        name='life'
+                        onChange={(e) => { handleChange(e) }}
+                    />
+                </div>
+                <div>
+                    <label className={styles.nameStats}>Attack:</label>
+                    <input
+                    className={styles.inputs}
+                        type="number"
+                        value={input.attack}
+                        name='attack'
+                        onChange={(e) => { handleChange(e) }}
+                    />
+                </div>
+                <div>
+                    <label className={styles.nameStats}>Defense:</label>
+                    <input
+                    className={styles.inputs}
+                        type="number"
+                        value={input.defense}
+                        name='defense'
+                        onChange={(e) => { handleChange(e) }}
+                    />
+                </div>
+                <div>
+                    <label className={styles.nameStats}>Speed:</label>
+                    <input
+                    className={styles.inputs}
+                        type="number"
+                        value={input.speed}
+                        name='speed'
+                        onChange={(e) => { handleChange(e) }}
+                    />
+                </div>
+                <div>
+                    <label className={styles.nameStats}>Weight:</label>
+                    <input
+                    className={styles.inputs}
+                        type="number"
+                        value={input.weight}
+                        name='weight'
+                        onChange={(e) => { handleChange(e) }}
+                    />
+                </div>
+                <div>
+                    <label className={styles.nameStats}>Height:</label>
+                    <input
+                    className={styles.inputs}
+                        type="number"
+                        value={input.height}
+                        name='height'
+                        onChange={(e) => { handleChange(e) }}
+                    />
+                </div>
+                {/* <div>
                     <label>Imagen:</label>
                     <input
                         type="text"
@@ -132,18 +140,19 @@ const PokemonCreate = () => {
                         onChange={(e) => {handleChange(e)}}
                     />
                 </div> */}
-                        <select onChange={(e) => { handleSelect(e) }}>
-                            {
-                                types.map((t) => (
-                                    <option value={t.name}>{t.name}</option>
-                                ))
-                            }
-                        </select>
-                        <ul><li>{input.types.map(t => t + ' ,')}</li></ul>
-                        <button type='submit'>Crear Pokemon</button>
-                    </form>
-                </div>
-            );
-        };
+                <div className={styles.nameStats}>Type/s</div>
+                <select className={styles.inputs} onChange={(e) => { handleSelect(e) }}>
+                    {
+                        types.map((t) => (
+                            <option value={t.name}>{t.name}</option>
+                        ))
+                    }
+                </select>
+                <ul><li>{input.types.map(t => t + ' ,')}</li></ul>
+                <button className={styles.btn} type='submit'>Crear Pokemon</button>
+            </form>
+        </div>
+    );
+};
 
-        export default PokemonCreate;
+export default PokemonCreate;

@@ -1,0 +1,68 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    background-color: #161853;
+
+}
+
+.cardContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.inputContainer {
+    padding-left: 30px;
+    padding-right: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.select {
+    height: 35px;
+    width: 160px;
+    border-radius: 25px;
+    background: #000957;
+    box-shadow: rgba(0, 0, 0, 0.664) 0px 5px 15px;
+    border: none;
+    color: yellow;
+    border: 2px solid yellow;
+    font-size: 20px;
+    font-weight: 700px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top: 20px;
+}
+
+.select:hover {
+    background: yellow;
+    color: #000957;
+    cursor: pointer;
+}
+
+.create {
+    height: 70px;
+    width: 200px;
+    border-radius: 25px;
+    background: #000957;
+    box-shadow: rgba(0, 0, 0, 0.664) 0px 5px 15px;
+    border: none;
+    color: yellow;
+    border: 2px solid yellow;
+    font-size: 20px;
+    font-weight: 700px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.create:hover {
+    background: yellow;
+    color: #000957;
+    cursor: pointer;
+}

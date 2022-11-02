@@ -1,12 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom'
+import styles from '../stylesheets/Card.module.css'
 
-const Card = ({name, image, types, attack}) => {
+const Card = ({ name, image, types, id }) => {
     return (
-        <div>
-            <h3>{name}</h3>
-            <h5>{types}</h5>
-            <img src={image} alt="" width='200px' height='250px'/>
-            <h5>{attack}</h5>
+        <div className={styles.container}>
+            <img className={styles.img} src={image} alt="" width='200px' height='200px' />
+            <div className={styles.nameContainer}>
+                <h3 className={styles.name}>{name}</h3>
+                <h5 className={styles.types}>Type: {types}</h5>
+                <Link to={'/home/' + id}>
+                <button className={styles.btn}>Know more about this pokemon!</button>
+                </Link>
+            </div>
         </div>
     );
 };

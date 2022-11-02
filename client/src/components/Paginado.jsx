@@ -1,4 +1,5 @@
 import React from 'react';
+import styles from '../stylesheets/Pagination.module.css'
 
 const Paginado = ({pokemonsPerPage, allPokemons, paginado}) => {
     const pageNumbers = [];
@@ -6,11 +7,11 @@ const Paginado = ({pokemonsPerPage, allPokemons, paginado}) => {
         pageNumbers.push(i+1)
     }
     return (
-        <div>
-            <ul>
+        <div className={styles.container}>
+            <ul className={styles.pagination}>
                 {
                     pageNumbers && pageNumbers.map((n) => (
-                        <li key={n}>
+                        <li className={styles.item} key={n}>
                             <div onClick={() => paginado(n)}>{n}</div>
                         </li>
                     ))

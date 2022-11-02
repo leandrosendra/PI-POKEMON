@@ -1,8 +1,9 @@
 import React from 'react';
-import {useEffect} from  'react'
+import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getDetail } from '../actions/index.js'
+import styles from '../stylesheets/Detail.module.css'
 
 const Detail = (props) => {
 
@@ -12,27 +13,25 @@ const Detail = (props) => {
 
     useEffect(() => {
         dispatch(getDetail(props.match.params.id));
-      }, [dispatch]);    
+    }, [dispatch]);
 
     return (
-        <div>
+        <div className={styles.mainContainer}>
+            <Link to='/home'><button className={styles.btn}>Go back</button></Link>
             {
-                myPokemon.length > 0 ? 
-                <div>
-                    <h1>{myPokemon[0].name}</h1>
-                    <img src={myPokemon[0].image} alt="" width='200px' height='300px'/>
-                    <h2>Types: {myPokemon[0].types}</h2>
-                    <div>Stats:
-                        <h3>Life: {myPokemon[0].life}</h3>
-                        <h3>Attack: {myPokemon[0].attack}</h3>
-                        <h3>Defense: {myPokemon[0].defense}</h3>
-                        <h3>Speed: {myPokemon[0].speed}</h3>
-                    </div>
-                    <h2>Height: {myPokemon[0].height}</h2>
-                    <h2>Weight: {myPokemon[0].weight}</h2>
-                </div> : <p>Loading...</p>
+                myPokemon.length > 0 ?
+                    <div className={styles.container}>
+                        <h1 className={styles.name}>{myPokemon[0].name}</h1>
+                        <img className={styles.img} src={myPokemon[0].image} alt="" width='220px' height='220px' />
+                        <h2 className={styles.stats}>Types: {myPokemon[0].types}</h2>
+                        <h3 className={styles.stats}>Life: {myPokemon[0].life}</h3>
+                        <h3 className={styles.stats}>Attack: {myPokemon[0].attack}</h3>
+                        <h3 className={styles.stats}>Defense: {myPokemon[0].defense}</h3>
+                        <h3 className={styles.stats}>Speed: {myPokemon[0].speed}</h3>
+                        <h2 className={styles.stats}>Height: {myPokemon[0].height}</h2>
+                        <h2 className={styles.stats}>Weight: {myPokemon[0].weight}</h2>
+                    </div> : <p className={styles.loading}>Loading...</p>
             }
-            <Link to='/home'><button>volver</button></Link>
         </div>
     );
 };

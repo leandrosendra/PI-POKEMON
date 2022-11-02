@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.pagination {
+    display: flex;
+    list-style: none;
+    margin-top: 20px;
+    margin-left: 400px;
+}
+
+.item {
+    height: 38px;
+    width: 32px;
+    color: yellow;
+    font-size: 18px;
+    font-weight: 700px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: 2px solid yellow;
+    margin: 5px;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.item:hover {
+    background: yellow;
+    color: #000957;
+}
