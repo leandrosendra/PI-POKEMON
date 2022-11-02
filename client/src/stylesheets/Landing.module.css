@@ -1,50 +1,27 @@
 * {
     box-sizing: border-box;
-    margin: 0;
     padding: 0;
+    margin: 0;
 }
 
 .container {
     background-color: #161853;
-}
-
-.cardContainer {
+    height: 650px;
+    padding-top: 50px;
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
-}
-
-.inputContainer {
-    padding-left: 30px;
-    padding-right: 30px;
-    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
 }
 
-.select {
-    height: 35px;
-    width: 160px;
-    border-radius: 25px;
-    background: #000957;
-    box-shadow: rgba(0, 0, 0, 0.664) 0px 5px 15px;
-    border: none;
+.title {
     color: yellow;
-    border: 2px solid yellow;
-    font-size: 20px;
+    font-size: 50px;
     font-weight: 700px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin-top: 20px;
 }
 
-.select:hover {
-    background: yellow;
-    color: #000957;
-    cursor: pointer;
-}
-
-.create {
+.btn {
     height: 70px;
     width: 200px;
     border-radius: 25px;
@@ -60,7 +37,7 @@
     margin-bottom: 20px;
 }
 
-.create:hover {
+.btn:hover {
     background: yellow;
     color: #000957;
     cursor: pointer;
