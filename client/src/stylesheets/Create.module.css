@@ -62,3 +62,10 @@
     color: #000957;
     cursor: pointer;
 }
+
+.errors {
+    color: red;
+    font-weight: 700px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top: 10px;
+}

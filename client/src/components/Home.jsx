@@ -29,10 +29,6 @@ const Home = () => {
         dispatch(getTypes())
     }, [dispatch])
 
-    function handleClick(e) {
-        e.preventDefault();
-        dispatch(getPokemons());
-    }
 
     function handleFilterByType(e) {
         dispatch(filterByType(e.target.value))

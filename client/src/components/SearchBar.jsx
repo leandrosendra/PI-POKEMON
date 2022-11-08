@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { getName } from '../actions'
+import { getName, getPokemons } from '../actions'
 import styles from '../stylesheets/Search.module.css'
 
 const SearchBar = () => {
@@ -21,6 +21,11 @@ const SearchBar = () => {
         }
     }
 
+    function handleClick(e) {
+        e.preventDefault();
+        dispatch(getPokemons());
+    }
+
     return (
             <form onSubmit={(e) => {handleSubmit(e)}}>
                 <input
@@ -31,7 +36,7 @@ const SearchBar = () => {
                     onChange={e => { handleInput(e) }}
                 />
                 <button className={styles.btn} type='submit'>SEARCH</button>
-                <button className={styles.btn}>Reload</button>
+                <button onClick={e => handleClick(e)} className={styles.btn}>Reload</button>
             </form>
     );
 };
