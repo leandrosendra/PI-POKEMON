@@ -32,7 +32,7 @@ const getApiInfo = async () => {
 
 const getDbInfo = async () => {
     try{
-      const results = await Pokemon.findAll({ //TRAERME TODO LO DE LA TABLA POKEMON, INCLUIDA LA RELACION CON TYPE
+      const results = await Pokemon.findAll({
           include:{
               model: Type,
               attributes: ['name'],

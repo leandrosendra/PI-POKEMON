@@ -62,10 +62,7 @@ function validate(input) {
     }
     if(!input.types.length){
         errors.types = 'Must choose a pokemon type'
-    }
-    if(input.types.length > 2){
-        errors.types = `You can't choose more than 2 types per Pokemon`
-    }    
+    } 
     return errors;
 }
 
@@ -221,15 +218,6 @@ const PokemonCreate = () => {
                         <p className={styles.errors}>{errors.height}</p>
                     )}
                 </div>
-                {/* <div>
-                    <label>Imagen:</label>
-                    <input
-                        type="text"
-                        value={input.image}
-                        name='image'
-                        onChange={(e) => {handleChange(e)}}
-                    />
-                </div> */}
                 <div className={styles.nameStats}>Type/s</div>
                 <select className={styles.inputs} onChange={(e) => { handleSelect(e) }}>
                     {

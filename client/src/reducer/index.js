@@ -45,10 +45,10 @@ function rootReducer(state = initialState, action) {
         case 'FILTER_CREATED':
             const allPokemons2 = state.allPokemons;
             const pokeFiltered = action.payload === 'Created' ? allPokemons2.filter(p => p.createdInDb) : allPokemons2.filter(p => !p.createdInDb)
-          return {
-            ...state,
-            pokemons:
-              action.payload === "All" ? allPokemons2 : pokeFiltered
+            return {
+                ...state,
+                pokemons:
+                    action.payload === "All" ? allPokemons2 : pokeFiltered
             }
         case 'FILTER_NAME':
             let sortedArray = [];

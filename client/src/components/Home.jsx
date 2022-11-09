@@ -7,6 +7,7 @@ import Paginado from './Paginado'
 import SearchBar from './SearchBar';
 import styles from '../stylesheets/Home.module.css'
 import logo from '../images/logo.png'
+import randomimg from '../images/randomimg.png'
 
 const Home = () => {
 
@@ -87,7 +88,7 @@ const Home = () => {
                         currentPokemons?.map((p) => {
                             return (
                                 <Fragment>
-                                    <Card name={p.name} image={p.image ? p.image : 'aca va la imagen'} types={p.types} id={p.id} key={p.id} />
+                                    <Card name={p.name} image={p.image ? p.image : randomimg} types={p.types} id={p.id} key={p.id} />
                                 </Fragment>
                             )
                         })
