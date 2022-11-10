@@ -2,7 +2,7 @@ import React from 'react';
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { getDetail } from '../actions/index.js'
+import { getDetail, cleanDetails } from '../actions/index.js'
 import styles from '../stylesheets/Detail.module.css'
 
 const Detail = (props) => {
@@ -11,8 +11,16 @@ const Detail = (props) => {
     const myPokemon = useSelector((state) => state.detail)
 
     useEffect(() => {
-        dispatch(getDetail(props.match.params.id));
-    }, [dispatch]);
+        const selectedId = props.match.params.id
+        if(myPokemon.length === 0) {
+            dispatch(getDetail(selectedId))
+        } else {
+            if (myPokemon[0].id !== selectedId) {
+                dispatch(cleanDetails)
+                dispatch(getDetail(selectedId));
+            }
+        }
+    }, [dispatch, props.match.params.id]);
 
     return (
         <div className={styles.mainContainer}>

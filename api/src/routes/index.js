@@ -26,7 +26,7 @@ router.get('/pokemons', async (req, res, next) => {
 })
 
 
-router.post('/pokemons', async (req, res) => {
+router.post('/pokemons', async (req, res, next) => {
     try {
         let { name, life, image, attack, defense, speed, height, weight, createdInDb, types } = req.body;
         const PokemonCreated = await Pokemon.create({
@@ -48,7 +48,7 @@ router.post('/pokemons', async (req, res) => {
         PokemonCreated.addType(pokemonTypes);
         return res.send('Pokemon created successfuly')
     } catch (error) {
-        res.status(400).send("Error en data");
+        next(error);
     }
 })
 
@@ -69,13 +69,12 @@ router.get('/pokemons/:id', async (req, res, next) => {
 })
 
 
-router.get('/types', async (req, res) => {
+router.get('/types', async (req, res, next) => {
     try {
         let pokeTypes = await getTypes();
         res.status(200).send(pokeTypes)
     } catch (error) {
-        console.log(`Error ${error} in get /types `);
-        throw `Error ${error} in get /types `;
+        next(error);
     }
 })
 

@@ -230,7 +230,7 @@ const PokemonCreate = () => {
                 {errors.name && (
                         <p className={styles.errors}>{errors.types}</p>
                     )}
-                <button className={styles.btn} type='submit'>Crear Pokemon</button>
+                <button className={styles.btn} type='submit' disabled={Boolean(errors.name)}>Crear Pokemon</button>
             </form>
         </div>
     );

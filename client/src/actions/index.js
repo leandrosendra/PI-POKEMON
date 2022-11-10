@@ -68,6 +68,8 @@ export function getDetail(id) {
     }
   }
 
+  export const cleanDetails = {type: 'CLEAN_DETAILS'}
+
 export function filterByType(payload) {
     return {
         type: 'FILTER_TYPE',
