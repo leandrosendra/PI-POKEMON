@@ -20,49 +20,49 @@ function validate(input) {
             errors.life = 'The life of the Pokemon must be less than 150'
         }
     }
-    if(input.attack < 1 || input.attack > 200) {
-        if(input.attack < 1) {
+    if (input.attack < 1 || input.attack > 200) {
+        if (input.attack < 1) {
             errors.attack = 'The attack of the Pokemon must be higher than 1'
         }
         if (input.attack > 200) {
             errors.attack = 'The attack of the Pokemon must be less than 200'
         }
     }
-    if(input.defense < 1 || input.defense > 200) {
-        if(input.defense < 1) {
+    if (input.defense < 1 || input.defense > 200) {
+        if (input.defense < 1) {
             errors.defense = 'The defense of the Pokemon must be higher than 1'
         }
         if (input.defense > 200) {
             errors.defense = 'The defense of the Pokemon must be less than 200'
         }
     }
-    if(input.speed < 1 || input.speed > 100) {
-        if(input.speed < 1) {
+    if (input.speed < 1 || input.speed > 100) {
+        if (input.speed < 1) {
             errors.speed = 'The speed of the Pokemon must be higher than 1'
         }
         if (input.speed > 100) {
             errors.speed = 'The speed of the Pokemon must be less than 100'
         }
     }
-    if(input.weight < 1 || input.weight > 2000) {
-        if(input.weight < 1) {
+    if (input.weight < 1 || input.weight > 2000) {
+        if (input.weight < 1) {
             errors.weight = 'The weight of the Pokemon must be higher than 1'
         }
         if (input.weight > 2000) {
             errors.weight = 'The weight of the Pokemon must be less than 2000'
         }
     }
-    if(input.height < 1 || input.height > 100) {
-        if(input.height < 1) {
+    if (input.height < 1 || input.height > 100) {
+        if (input.height < 1) {
             errors.height = 'The height of the Pokemon must be higher than 1'
         }
         if (input.height > 100) {
             errors.height = 'The height of the Pokemon must be less than 100'
         }
     }
-    if(!input.types.length){
+    if (!input.types.length) {
         errors.types = 'Must choose a pokemon type'
-    } 
+    }
     return errors;
 }
 
@@ -94,11 +94,13 @@ const PokemonCreate = () => {
     }
 
     function handleSelect(e) {
-        if (input.types.length < 2) { setInput({
-            ...input,
-            types: [...input.types, e.target.value]
-        }) }
-        
+        if (input.types.length < 2) {
+            setInput({
+                ...input,
+                types: [...input.types, e.target.value]
+            })
+        }
+
     }
 
     function handleSubmit(e) {
@@ -116,7 +118,12 @@ const PokemonCreate = () => {
             types: []
         })
         history.push('/home')
+        if (Object.keys(errors).length > 0) {
+            return [];
+        }
     }
+
+
 
     useEffect(() => {
         dispatch(getTypes());
@@ -162,7 +169,7 @@ const PokemonCreate = () => {
                         name='attack'
                         onChange={(e) => { handleChange(e) }}
                     />
-                     {errors.name && (
+                    {errors.name && (
                         <p className={styles.errors}>{errors.attack}</p>
                     )}
                 </div>
@@ -175,7 +182,7 @@ const PokemonCreate = () => {
                         name='defense'
                         onChange={(e) => { handleChange(e) }}
                     />
-                     {errors.name && (
+                    {errors.name && (
                         <p className={styles.errors}>{errors.defense}</p>
                     )}
                 </div>
@@ -188,7 +195,7 @@ const PokemonCreate = () => {
                         name='speed'
                         onChange={(e) => { handleChange(e) }}
                     />
-                     {errors.name && (
+                    {errors.name && (
                         <p className={styles.errors}>{errors.speed}</p>
                     )}
                 </div>
@@ -201,7 +208,7 @@ const PokemonCreate = () => {
                         name='weight'
                         onChange={(e) => { handleChange(e) }}
                     />
-                     {errors.name && (
+                    {errors.name && (
                         <p className={styles.errors}>{errors.weight}</p>
                     )}
                 </div>
@@ -214,22 +221,22 @@ const PokemonCreate = () => {
                         name='height'
                         onChange={(e) => { handleChange(e) }}
                     />
-                     {errors.name && (
+                    {errors.name && (
                         <p className={styles.errors}>{errors.height}</p>
                     )}
                 </div>
                 <div className={styles.nameStats}>Type/s</div>
-                <select className={styles.inputs} onChange={(e) => { handleSelect(e) }}>
+                <select className={styles.inputype} onChange={(e) => { handleSelect(e) }}>
                     {
                         types.map((t) => (
                             <option value={t.name}>{t.name}</option>
                         ))
                     }
                 </select>
-                <ul><li>{input.types.map(t => t + ' ,')}</li></ul>
+                <ul><li>{input.types.map(t => t + ' ')}</li></ul>
                 {errors.name && (
-                        <p className={styles.errors}>{errors.types}</p>
-                    )}
+                    <p className={styles.errors}>{errors.types}</p>
+                )}
                 <button className={styles.btn} type='submit' disabled={Boolean(errors.name)}>Crear Pokemon</button>
             </form>
         </div>
